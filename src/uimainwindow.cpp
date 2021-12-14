@@ -1,4 +1,5 @@
 #include <thread>
+#include <QtCore/QString>
 #include "uimainwindow.h"
 
 Ui_alpha::Ui_alpha(QWidget *parent) : QMainWindow(parent), win(nullptr)
@@ -16,17 +17,16 @@ Ui_alpha::~Ui_alpha()
 
 void Ui_alpha::slot1()
 {
-    startTimer(1000);
+    startTimer(500);
 }
 
 void Ui_alpha::timerEvent(QTimerEvent *e) 
 {
-    
+   
   Q_UNUSED(e);
-  
-
-        QString string = "test";
-        QPushButton *b = new QPushButton(string, nullptr);
+        
+        std::string str = "test\n hi";
+        QPushButton *b = new QPushButton(str.c_str(), nullptr);
         glayot->addWidget(b, y, x);
     (x < 5)? (++x) : (++y, x = 0);
     
