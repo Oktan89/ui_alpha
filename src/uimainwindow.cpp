@@ -1,6 +1,7 @@
 #include <thread>
 #include <QtCore/QString>
 #include "uimainwindow.h"
+#include "qstr.h"
 
 Ui_alpha::Ui_alpha(QWidget *parent) : QMainWindow(parent), win(nullptr)
 {
@@ -24,9 +25,9 @@ void Ui_alpha::timerEvent(QTimerEvent *e)
 {
    
   Q_UNUSED(e);
+        okt::WrapQString string("OktaN");
         
-        std::string str = "test\n hi";
-        QPushButton *b = new QPushButton(str.c_str(), nullptr);
+        QPushButton *b = new QPushButton(string, nullptr);
         glayot->addWidget(b, y, x);
     (x < 5)? (++x) : (++y, x = 0);
     

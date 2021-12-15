@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5.0)
 
 
-set(SOURCES main.cpp uimainwindow.cpp )
-set(HEADERS ${MY_INCLUDE_DIR}/uimainwindow.h)
+set(SOURCES main.cpp uimainwindow.cpp qstr.cpp)
+set(HEADERS ${MY_INCLUDE_DIR}/uimainwindow.h ${MY_INCLUDE_DIR}/qstr.h)
 set(SOURCESUI uiparse.ui)
 
 set(CMAKE_AUTOUIC ON)
