@@ -25,6 +25,7 @@ endif()
 message("Looking for Qt...")
 
 find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
+message("QT5 DIR:  [${Qt5Widgets_INCLUDE_DIRS}]")
 
 if(${Qt5_FOUND})
     message("Found Qt " ${Qt5_VERSION})
@@ -37,9 +38,11 @@ qt5_wrap_ui (MOC_SOURCESUI ${SOURCESUI})
 
 add_executable(Uialpha ${SOURCES} ${MOC_SOURCES} ${MOC_SOURCESUI} )
 
+
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads)
 
 target_link_libraries(Uialpha Threads::Threads)
 target_link_libraries(Uialpha Qt5::Core Qt5::Gui Qt5::Widgets)
-target_include_directories(Uialpha PUBLIC ${MY_INCLUDE_DIR})
+
+target_include_directories(Uialpha PUBLIC ${MY_INCLUDE_DIR} ${Qt5Widgets_INCLUDE_DIRS})
